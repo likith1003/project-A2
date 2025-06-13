@@ -1,0 +1,31 @@
+{% extends "seller/seller_base.html" %}
+
+{% block title %}
+  Seller | Home Page
+{% endblock title %}
+
+
+{% block content %}
+  <center>
+    <h1>Welcome Update Page</h1>
+  <form method="post">
+    {% csrf_token %}
+    <label for="pname">Product Name</label>
+    <input type="text" value="{{product.pname}}" name="pname"> <br><br>
+    <label for="">Description</label>
+    <textarea name="desc">{{product.desc}}</textarea> <br><br>
+    <label for="">Price</label>
+    <input type="number" value="{{product.price}}" name="price"> <br><br>
+    <label for="">category</label>
+    <input type="text" value="{{product.category}}" name="category"> <br><br>
+    <label for="">Brand</label>
+    <input type="text" value="{{product.brand}}" name="brand"> <br><br>
+    <label for="">Stock</label>
+    <input type="number" value="{{product.stock}}" name="stock"> <br><br>
+    <label for="">Discount</label>
+    <input type="number" value="{{product.discount}}" name="discount"> <br><br>
+    <input type="submit" value="Update">
+  </form>
+    </center>
+
+{% endblock content %}

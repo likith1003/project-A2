@@ -1,0 +1,29 @@
+{% extends "customer/customer_base.html" %}
+
+{% block title %}
+  Customer | Login Page
+{% endblock title %}
+
+{% block content %}
+  <center>
+    <h1>User Login</h1>
+  </center>
+      {% for message in messages %}
+    <div class="alert alert-primary" role="alert">
+        {{message}}
+    </div>
+    {% endfor %}
+  <form method="post">
+    {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">UserName</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="un">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="pw">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock content %}

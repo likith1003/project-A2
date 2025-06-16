@@ -40,6 +40,12 @@ class Product(models.Model):
     stock = models.IntegerField()
     discount = models.FloatField()
     picture = models.ImageField(upload_to='Product_images', max_length=None)
+    
+    @property
+    def discounted_price(self):
+        if self.discount:
+            return round(self.price * (1 - self.discount / 100), 2)
+        return self.price
 
     def __str__(self):
         return self.pname+self.seller.first_name
